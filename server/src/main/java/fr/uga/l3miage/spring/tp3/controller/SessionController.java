@@ -5,6 +5,10 @@ import fr.uga.l3miage.spring.tp3.request.SessionCreationRequest;
 import fr.uga.l3miage.spring.tp3.responses.SessionResponse;
 import fr.uga.l3miage.spring.tp3.services.SessionService;
 import lombok.RequiredArgsConstructor;
+import fr.uga.l3miage.spring.tp3.responses.CandidateEvaluationGridResponse;
+
+import java.util.Set;
+
 import org.springframework.stereotype.Controller;
 
 @Controller
@@ -15,5 +19,10 @@ public class SessionController implements SessionEndpoints {
     @Override
     public SessionResponse createSession(SessionCreationRequest request) {
         return sessionService.createSession(request);
+    }
+
+    @Override
+    public Set<CandidateEvaluationGridResponse> endEvaluationSession(Long sessionId) {
+        return sessionService.endEvaluationSession(sessionId);
     }
 }
